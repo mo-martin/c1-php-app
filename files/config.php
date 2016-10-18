@@ -1,6 +1,6 @@
 <?php
 // database settings
-$db_host = "54.229.149.210:3306";
+$db_host = "172.31.44.97:3306";
 $db_user = "root";
 $db_pass = "secret";
 $db_name = "fusion";
