@@ -27,6 +27,9 @@ popd
 pushd php-db
 docker build --tag php-db:latest .
 popd
+pushd php-data
+docker build --tag php-data:latest .
+popd
 
 
 echo "Checking for the container php-data"
@@ -47,7 +50,7 @@ fi
 # echo "Running the rest"
 # docker run -it --link php-db:mysql --rm mysql/mysql-server:5.5 sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
 docker run --name php-db -e MYSQL_ROOT_PASSWORD=123456abc -d php-db:latest
-docker run --name php-app -p 3000:3000 -e db_connect=php-db --link php-db -d php-app
+docker run --name php-app -p 80:80 -p 443:443 -p 3000:3000 --link php-db -d php-app
 
 
 
