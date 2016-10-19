@@ -860,7 +860,7 @@ function makepagenav($start, $count, $total, $range = 0, $link = "", $getname = 
 
 	if ($link == "") { $link = FUSION_SELF."?"; }
 	if (!preg_match("#[0-9]+#", $count) || $count == 0) return false;
-	
+
 	$pg_cnt = ceil($total / $count);
 	if ($pg_cnt <= 1) { return ""; }
 
